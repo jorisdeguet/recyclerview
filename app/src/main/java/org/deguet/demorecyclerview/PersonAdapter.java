@@ -1,5 +1,6 @@
 package org.deguet.demorecyclerview;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -40,6 +41,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
         LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.person_item, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
+        Log.i("DEBOGAGE", "appel a onCreateViewHolder");
         return vh;
     }
 
@@ -51,7 +53,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
         Person personneCourante = list.get(position);
         holder.tvNom.setText(personneCourante.nom);
         holder.tvAge.setText(""+personneCourante.age); // TODO setText sur un integer crash
-
+        Log.i("DEBOGAGE", "appel a onBindViewHolder " + position);
     }
 
     // renvoie la taille de la liste
